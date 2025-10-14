@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Quest: SDG"
 run/main_scene="uid://bm3rnwx5wv8tx"
-config/features=PackedStringArray("4.4", "Mobile")
+config/features=PackedStringArray("4.5", "Mobile")
 config/icon="res://images/new logo1.png"
 
 [autoload]
@@ -21,8 +21,8 @@ XrSimulator="res://addons/xr-simulator/XRSimulator.tscn"
 
 [gui]
 
-theme/custom_font="uid://bj0nihy4bcae2"
 theme/default_font_multichannel_signed_distance_field=true
+theme/custom_font="uid://bj0nihy4bcae2"
 
 [physics]
 
