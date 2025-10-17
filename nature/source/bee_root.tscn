@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://ndhrhduvtb8a"]
+
+[ext_resource type="PackedScene" uid="uid://blk5tvelk02i5" path="res://nature/source/bee.tscn" id="1_fah20"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_t4lw7"]
+size = Vector3(0.6748047, 0.51312256, 0.56359863)
+
+[node name="BeeRoot" type="CharacterBody3D"]
+
+[node name="Bee" parent="." instance=ExtResource("1_fah20")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.9952461, 0, 0.09739183, 0, 1, 0, -0.09739183, 0, 0.9952461, 0.045599036, 0.016227186, 0.35047665)
+shape = SubResource("BoxShape3D_t4lw7")

@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://blk5tvelk02i5"]
+
+[ext_resource type="PackedScene" uid="uid://8cdfaib1xdpp" path="res://nature/source/Bee.glb" id="1_i172t"]
+
+[node name="Bee" instance=ExtResource("1_i172t")]
