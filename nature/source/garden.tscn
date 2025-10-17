@@ -2,24 +2,29 @@
 
 [ext_resource type="ArrayMesh" uid="uid://hwt2tjn7l2g7" path="res://nature/10450_Rectangular_Grass_Patch_L3.123c827d110a-1347-4381-9208-e4f735762647/10450_Rectangular_Grass_Patch_v1_iterations-2.obj" id="1_87o5b"]
 [ext_resource type="PackedScene" uid="uid://ndhrhduvtb8a" path="res://nature/source/bee_root.tscn" id="2_03sxg"]
-[ext_resource type="Script" uid="uid://b2nk434u1axj2" path="res://nature/source/bee_root.gd" id="3_ck6xr"]
+[ext_resource type="Script" uid="uid://bxtj084c165ad" path="res://nature/source/xr_camera_3d.gd" id="4_ck6xr"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_kxogw"]
 
 [node name="XROrigin3D" type="XROrigin3D"]
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.96726775, -0.12030362, 0.22342809, 0, 0.88047737, 0.4740882, -0.2537579, 0.4585702, -0.8516574, 0, 0, 0)
+light_color = Color(0.6666667, 0.8, 0.21960784, 1)
+shadow_enabled = true
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+[node name="ground" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ground"]
 shape = SubResource("WorldBoundaryShape3D_kxogw")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ground"]
 transform = Transform3D(0.9982646, -0.058876444, 0.0011777736, 0, 0.020000154, 0.9997999, -0.058888227, -0.9980649, 0.019965446, -15.3293, -13.157425, 1.4735336)
 mesh = ExtResource("1_87o5b")
 
 [node name="BeeRoot" parent="." instance=ExtResource("2_03sxg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.69787, 0, -61.476677)
-script = ExtResource("3_ck6xr")
 
 [node name="XRCamera3D" type="XRCamera3D" parent="BeeRoot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -74.69787, 0, 61.476677)
+script = ExtResource("4_ck6xr")
