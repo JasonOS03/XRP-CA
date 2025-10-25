@@ -53,7 +53,7 @@ Passthrough: The user will be able to see the sky as their real life background,
 Initial QuestSDG main UI scene:
 
 
- 
+ ![Alt Text](20251019_225034.jpg)
 
  
 
