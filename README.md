@@ -59,7 +59,7 @@ Initial QuestSDG main UI scene:
 
 First Person view of garden scene 
 
- 
+ ![Alt Text](20251019_225115.jpg)
 
  
 
@@ -99,8 +99,9 @@ First Person view of garden scene
 
 Key interactions/ flower grabbing scene 
 
- 
+ ![Alt Text](20251019_225214.jpg)
 
+![Alt Text](20251019_225429.jpg)
  
 
  
@@ -131,7 +132,7 @@ Key interactions/ flower grabbing scene
 
 Spatial Layout/environment 
 
- 
+ ![Alt Text](20251019_225145.jpg)
 
  
 
