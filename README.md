@@ -30,23 +30,23 @@ This project will be done on an individual basis.
 
 Key Features and Interactions: 
 
-Teleportation Locomotion: Users will fly to each individual flower using a point and teleport system. This mechanic ensures each flower is easily moved to and accessed. 
+Teleportation Locomotion: Users will fly to each individual flower using a point and teleport system. This mechanic ensures each flower is easily moved to and accessed.This functionality is provided by the library XR Toolkit. 
 
-Trigger based flower touching: When the user teleports to the flower, they can touch the flower, and it will bloom and release pollen into the environment as a reaction. 
+Trigger based flower touching: When the user teleports to the flower, they can touch the flower, and it will bloom and release pollen into the environment as a reaction. Implemented through XR Toolkit for the interaction and the hand collisions will be detected by the OpenXR
 
-Particle Effects: Pollen particle effects will appear when the flowers are bloomed, which will provide visual feedback for the user 
+Particle Effects: Pollen particle effects will appear when the flowers are bloomed, which will provide visual feedback for the user. Implemented using Godot's built in particle system
 
 Pollination counter – A counter will be kept in the top corner of the screen to notify the user of how many flowers have been pollinated. 
 
 XR Technologies: 
 
-Hand Tracking: When the user touches the flower with their virtual bee legs/antennae, the flowers will be pollinated.  
+Hand Tracking: When the user touches the flower with their virtual bee legs/antennae, the flowers will be pollinated. This feature is provided by the XR Toolkit  
 
 Teleportation Locomotion: Allows the user to seamlessly travel between flowers. 
 
-Spatial Audio: birds chirping, bees buzzing, and calm ambient music will be used to create a relaxing atmosphere. 
+Spatial Audio: birds chirping, bees buzzing, and calm ambient music will be used to create a relaxing atmosphere. Achieved using Godot's 3D audio system
 
-Passthrough: The user will be able to see the sky as their real life background, making the garden appear as if it existed in their own environment. 
+Passthrough: The user will be able to see the sky as their real life background, making the garden appear as if it existed in their own environment. Passthrough will be implemented through the OpenXR library 
 
  
 
