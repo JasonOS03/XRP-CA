@@ -53,7 +53,7 @@ light_color = Color(0.6666667, 0.8, 0.21960784, 1)
 shadow_enabled = true
 
 [node name="BeeRoot" parent="." instance=ExtResource("2_03sxg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.69781, 0.00048017874, -61.476585)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.69445, -0.0076418035, -61.47851)
 
 [node name="ground" type="StaticBody3D" parent="."]
 

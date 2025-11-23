@@ -1,14 +1,37 @@
-[gd_scene load_steps=4 format=3 uid="uid://ndhrhduvtb8a"]
+[gd_scene load_steps=10 format=3 uid="uid://ndhrhduvtb8a"]
 
 [ext_resource type="PackedScene" uid="uid://blk5tvelk02i5" path="res://nature/source/bee.tscn" id="1_fah20"]
 [ext_resource type="PackedScene" uid="uid://cgcmg10r4xi3x" path="res://nature/source/flower.tscn" id="2_t4lw7"]
+[ext_resource type="Material" path="res://Holo/bee.tres" id="3_rpu40"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_t4lw7"]
 size = Vector3(0.6748047, 0.51312256, 0.56359863)
 
+[sub_resource type="CylinderMesh" id="CylinderMesh_c5u56"]
+material = ExtResource("3_rpu40")
+top_radius = 0.05
+bottom_radius = 0.05
+height = 1.6
+
+[sub_resource type="Skin" id="Skin_j06po"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_rpu40"]
+height = 0.5
+radius = 0.845
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_onw7m"]
+top_radius = 0.05
+bottom_radius = 0.05
+height = 1.6
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_6n2k3"]
+height = 0.5
+radius = 0.84472656
+
 [node name="BeeRoot" type="CharacterBody3D"]
 
 [node name="Bee" parent="." instance=ExtResource("1_fah20")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.099807195, 0.013428137, 0.03809756)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.9952461, 0, 0.09739183, 0, 1, 0, -0.09739183, 0, 0.9952461, 0.045599036, 0.016227186, 0.35047665)
@@ -16,3 +39,33 @@ shape = SubResource("BoxShape3D_t4lw7")
 
 [node name="Area3D" parent="." instance=ExtResource("2_t4lw7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.86699, 0, -1.9844767)
+
+[node name="XROrigin3D" type="XROrigin3D" parent="."]
+
+[node name="lefthand" type="XRController3D" parent="XROrigin3D"]
+tracker = &"left_hand"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="XROrigin3D/lefthand"]
+transform = Transform3D(0.071691066, -0.06971649, -1.0884393e-08, 0.04339955, 0.044628732, 0.078260824, -0.054560695, -0.056106012, 0.06225147, -0.1977977, 0.07724536, 0.2884417)
+mesh = SubResource("CylinderMesh_c5u56")
+skin = SubResource("Skin_j06po")
+
+[node name="Area3D" type="Area3D" parent="XROrigin3D/lefthand"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="XROrigin3D/lefthand/Area3D"]
+transform = Transform3D(0.0514785, 0.08573019, -0.0005470595, -0.009229312, 0.004907313, -0.09945219, -0.08523371, 0.051246982, 0.010438517, -0.2590974, 0.0025683194, 0.5222147)
+shape = SubResource("CylinderShape3D_rpu40")
+
+[node name="righthand" type="XRController3D" parent="XROrigin3D"]
+tracker = &"right_hand"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="XROrigin3D/righthand"]
+transform = Transform3D(0.033380695, 0.09426415, 0, -0.07366936, 0.02608769, 0.062387977, 0.0588095, -0.020825537, 0.078152046, -0.19795272, -0.042018306, 0.5370287)
+mesh = SubResource("CylinderMesh_onw7m")
+surface_material_override/0 = ExtResource("3_rpu40")
+
+[node name="Area3D" type="Area3D" parent="XROrigin3D/righthand"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="XROrigin3D/righthand/Area3D"]
+transform = Transform3D(0.0514785, 0.08573018, -0.0005470609, -0.00922932, 0.0049073165, -0.09945219, -0.0852337, 0.05124699, 0.010438526, -0.23248062, 0.09476951, 0.25119635)
+shape = SubResource("CylinderShape3D_6n2k3")
