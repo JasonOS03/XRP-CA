@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://ndhrhduvtb8a"]
+[gd_scene load_steps=12 format=3 uid="uid://ndhrhduvtb8a"]
 
 [ext_resource type="PackedScene" uid="uid://blk5tvelk02i5" path="res://nature/source/bee.tscn" id="1_fah20"]
 [ext_resource type="PackedScene" uid="uid://cgcmg10r4xi3x" path="res://nature/source/flower.tscn" id="2_t4lw7"]
 [ext_resource type="Material" path="res://Holo/bee.tres" id="3_rpu40"]
 [ext_resource type="Script" uid="uid://wfhpv5iawipr" path="res://nature/source/left_hand.gd" id="4_c5u56"]
+[ext_resource type="Script" uid="uid://ceq0a6lciookm" path="res://nature/source/righthand.gd" id="5_j06po"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_t4lw7"]
 size = Vector3(0.6748047, 0.51312256, 0.56359863)
@@ -60,6 +61,7 @@ shape = SubResource("CylinderShape3D_rpu40")
 
 [node name="righthand" type="XRController3D" parent="XROrigin3D"]
 tracker = &"right_hand"
+script = ExtResource("5_j06po")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="XROrigin3D/righthand"]
 transform = Transform3D(0.033380695, 0.09426415, 0, -0.07366936, 0.02608769, 0.062387977, 0.0588095, -0.020825537, 0.078152046, -0.19795272, -0.042018306, 0.5370287)
