@@ -126,6 +126,11 @@ hand_pose_set = ExtResource("6_286k1")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="XROrigin3D2/right/collider"]
 shape = SubResource("CapsuleShape3D_0yoiv")
 
+[node name="pollinated_count_label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 16.0
+horizontal_alignment = 2
+
 [connection signal="pose_ended" from="XROrigin3D2/left/HandPoseDetector" to="XROrigin3D2/left" method="_on_hand_pose_detector_pose_ended"]
 [connection signal="pose_started" from="XROrigin3D2/left/HandPoseDetector" to="XROrigin3D2/left" method="_on_hand_pose_detector_pose_started"]
 [connection signal="area_entered" from="XROrigin3D2/left/left_hand" to="XROrigin3D2/left" method="_on_right_hand_area_entered"]
