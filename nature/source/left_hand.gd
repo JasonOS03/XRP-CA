@@ -1,4 +1,4 @@
-extends Area3D
+extends XRController3D
 
 var target: Area3D = null
 
@@ -19,7 +19,10 @@ func _area_exited(area_of_garden):
 func _input(event: InputEvent) -> void:
 	if event is InputEventJoypadButton and event.pressed:
 		if target and event.button_index == 6:
-			target.call("_bee_click")
+			if target.is_in_group("flower"):
+				target.call("_bee_click")
+			elif target.is_in_group("monument"):
+				target.call("_monument_click")
 			
 		
 		
