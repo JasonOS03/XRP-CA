@@ -9,6 +9,8 @@ func _ready() -> void:
 func _area_entered(area_of_garden):
 	if area_of_garden.is_in_group("flower"):
 		target = area_of_garden
+	elif area_of_garden.is_in_group("monument"):
+		target = area_of_garden
 		
 func _area_exited(area_of_garden):
 	if target == area_of_garden:

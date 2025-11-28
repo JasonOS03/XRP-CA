@@ -1,6 +1,7 @@
 extends Node3D
 
 var flower := preload("res://nature/source/flower.tscn");
+var monument := preload("res://stone_monument.tscn");
 var flower_rows := 3.0;
 var flower_cols := 3.0;
 var label: Label 
@@ -16,6 +17,8 @@ func _ready() -> void:
 			crocus_flower.position = Vector3(fl*flower_rows,-0.5,cols*flower_cols)
 			add_child(crocus_flower)
 			print("flower location: ",crocus_flower.position)
+	var stone_monument = monument.instantiate()
+	add_child(stone_monument)
 		
 		
 func _all_flowers_pollinated():
@@ -29,4 +32,8 @@ func _all_flowers_pollinated():
 		print("you have pollinated all of the flowers")
 	else:
 		print("remaining flowers left to pollinate: ",get_tree().get_nodes_in_group("flower").size() - total_flowers_pollinated)
+		
+
+	
+	
 		
