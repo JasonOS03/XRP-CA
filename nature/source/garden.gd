@@ -13,8 +13,8 @@ func _ready() -> void:
 	var bee_root = get_node("BeeRoot")
 	bee_root.position.y = 1.6
 	print("Bee position: ",bee_root.position)
-	var x_offset = (flower_rows - 1) * 2.0 / 2.0
-	var z_offset = (flower_cols - 1) * 2.0 / 2.0
+	var x_offset = 2 * 2.0 / 2.0
+	var z_offset = 2 * 2.0 / 2.0
 	var bee_position = bee_root.global_transform.origin
 
 	for fl in range(flower_rows):

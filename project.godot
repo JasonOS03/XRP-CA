@@ -24,6 +24,14 @@ XrSimulator="res://addons/xr-simulator/XRSimulator.tscn"
 theme/default_font_multichannel_signed_distance_field=true
 theme/custom_font="uid://bj0nihy4bcae2"
 
+[input]
+
+click_A={
+"deadzone": 0.2,
+"events": [Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":0,"pressure":0.0,"pressed":false,"script":null)
+]
+}
+
 [physics]
 
 3d/default_gravity=0.0
