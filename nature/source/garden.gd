@@ -8,17 +8,21 @@ var label: Label
 @export var total_flowers_pollinated: int = 0
 
 func _ready() -> void:
+	var ground = get_node("ground")
+	ground.position.y = -2
+
 	label = get_node("pollinated_count_label")
 	label.text = "number pollinated: " + str(total_flowers_pollinated)
 	for fl in range (flower_rows):
 		for cols in range (flower_cols):
 			var crocus_flower = flower.instantiate()
 			crocus_flower.add_to_group("flower")
-			crocus_flower.position = Vector3(fl*flower_rows,-0.5,cols*flower_cols)
-			add_child(crocus_flower)
+			crocus_flower.position = Vector3(fl*flower_rows,0,cols*flower_cols)
+			ground.add_child(crocus_flower)
 			print("flower location: ",crocus_flower.position)
 	var stone_monument = monument.instantiate()
-	add_child(stone_monument)
+	stone_monument.position = Vector3(0,0,-10)
+	ground.add_child(stone_monument)
 		
 		
 func _all_flowers_pollinated():

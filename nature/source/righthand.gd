@@ -3,8 +3,9 @@ extends XRController3D
 var target: Area3D = null
 
 func _ready() -> void:
-	connect("area_entered",Callable(self,"_area_entered"))
-	connect("area_exited",Callable(self,"_area_exited"))
+	var area = get_node("Area3D")
+	area.connect("area_entered",Callable(self,"_area_entered"))
+	area.connect("area_exited",Callable(self,"_area_exited"))
 
 func _area_entered(area_of_garden):
 	if area_of_garden.is_in_group("flower"):
