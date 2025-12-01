@@ -1,41 +1,48 @@
 extends Node3D
 
-var flower := preload("res://nature/source/flower.tscn");
-var monument := preload("res://stone_monument.tscn");
-var flower_rows := 3.0;
-var flower_cols := 3.0;
-var label: Label 
+var flower := preload("res://nature/source/flower.tscn")
+var flower_rows := 3
+var flower_cols := 3
+var label: Label
 @export var total_flowers_pollinated: int = 0
 
 func _ready() -> void:
-	var ground = get_node("ground")
-	ground.position.y = -2
 
 	label = get_node("pollinated_count_label")
 	label.text = "number pollinated: " + str(total_flowers_pollinated)
-	for fl in range (flower_rows):
-		for cols in range (flower_cols):
+	var bee_root = get_node("BeeRoot")
+	bee_root.position.y = 1.6
+	print("Bee position: ",bee_root.position)
+	var x_offset = (flower_rows - 1) * 2.0 / 2.0
+	var z_offset = (flower_cols - 1) * 2.0 / 2.0
+	var bee_position = bee_root.global_transform.origin
+
+	for fl in range(flower_rows):
+		for cols in range(flower_cols):
 			var crocus_flower = flower.instantiate()
 			crocus_flower.add_to_group("flower")
-			crocus_flower.position = Vector3(fl*flower_rows,0,cols*flower_cols)
-			ground.add_child(crocus_flower)
-			print("flower location: ",crocus_flower.position)
-	var stone_monument = monument.instantiate()
-	stone_monument.position = Vector3(0,0,-10)
-	ground.add_child(stone_monument)
-		
-		
+			crocus_flower.position = Vector3(bee_position.x + fl * 2.0-x_offset,0.3,bee_position.z-(cols*2.0-z_offset)  - 6.0)
+			add_child(crocus_flower)
+			print("flower location: ", crocus_flower.position)
+
+	var stone_monument = get_node("Stone_monument")
+	stone_monument.add_to_group("monument")
+	stone_monument.position = Vector3(bee_position.x * 1.5, 0.3,bee_position.z -(2.0-z_offset))
+
+
 func _all_flowers_pollinated():
-	var total_flowers_pollinated = 0
+	total_flowers_pollinated = 0
 	for crocus_flower in get_tree().get_nodes_in_group("flower"):
 		total_flowers_pollinated += crocus_flower.pollinated_count
-		
+
 	label.text = "Flowers pollinated: " + str(total_flowers_pollinated)
-		
+
 	if total_flowers_pollinated >= get_tree().get_nodes_in_group("flower").size():
 		print("you have pollinated all of the flowers")
 	else:
-		print("remaining flowers left to pollinate: ",get_tree().get_nodes_in_group("flower").size() - total_flowers_pollinated)
+		print("remaining flowers left to pollinate: ",
+			  get_tree().get_nodes_in_group("flower").size() - total_flowers_pollinated)
+
 		
 
 	
