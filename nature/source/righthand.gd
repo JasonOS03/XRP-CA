@@ -11,7 +11,7 @@ func _ready() -> void:
 
 func _on_pointer_pressed(Event:Variant) -> void:
 	print(Event)
-	if Event.pressed:
+	if  Event.action == "primary_click" or Event.action == "a_button" or Event.action == "trigger_click" and Event.pressed:
 		var target_area = Event.target
 		print("button pressed")
 		if target_area and target_area.has_method("_bee_click"):
@@ -22,5 +22,5 @@ func _on_pointer_pressed(Event:Variant) -> void:
 		elif target_area:
 			print("teleporting...")
 			var bee_root = get_parent()
-			bee_root.global_transform.origin = Event.position
+			bee_root.global_transform.origin = Event.collision_point
 			print("teleported")

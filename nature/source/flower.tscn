@@ -7,6 +7,26 @@
 size = Vector3(1.2255859, 1, 0.9682617)
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_4nhx7"]
+lifetime_randomness = 0.1
+inherit_velocity_ratio = 0.173
+velocity_pivot = Vector3(0.5, 1, 0)
+spread = 65.0
+flatness = 0.086
+initial_velocity_min = 158.73
+initial_velocity_max = 564.7
+angular_velocity_min = -1.6093254e-05
+angular_velocity_max = 42.349983
+hue_variation_min = 0.17999998
+hue_variation_max = 0.17999998
+anim_speed_min = 3.01
+anim_speed_max = 3.01
+turbulence_enabled = true
+turbulence_noise_strength = 8.13
+turbulence_noise_speed = Vector3(0.3, 0.5, 0.1)
+turbulence_noise_speed_random = 1.21
+turbulence_influence_max = 0.485
+turbulence_initial_displacement_min = 1.490116e-06
+turbulence_initial_displacement_max = 1.490116e-06
 
 [sub_resource type="SphereMesh" id="SphereMesh_6sgmj"]
 
@@ -184,7 +204,11 @@ transform = Transform3D(0.06281909, -1.7989036, 0, 1.7989035, 0.06281909, 0, 0, 
 shape = SubResource("BoxShape3D_4nhx7")
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+transparency = 0.12
 emitting = false
+one_shot = true
+explosiveness = 0.12
 process_material = SubResource("ParticleProcessMaterial_4nhx7")
 draw_pass_1 = SubResource("SphereMesh_6sgmj")
 draw_skin = SubResource("Skin_48q2c")
