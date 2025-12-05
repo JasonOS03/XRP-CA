@@ -11,23 +11,22 @@ func _ready() -> void:
 	label = get_node("pollinated_count_label")
 	label.text = "number pollinated: " + str(total_flowers_pollinated)
 	var bee_root = get_node("BeeRoot")
-	bee_root.position.y = 1.6
-	print("Bee position: ",bee_root.position)
+	print("Bee position: ",bee_root.global_transform.origin)
 	var x_offset = 2 * 2.0 / 2.0
 	var z_offset = 2 * 2.0 / 2.0
-	var bee_position = bee_root.global_transform.origin
+	var ground_y = $ground.global_transform.origin.y
 
 	for fl in range(flower_rows):
 		for cols in range(flower_cols):
 			var crocus_flower = flower.instantiate()
 			crocus_flower.add_to_group("flower")
-			crocus_flower.position = Vector3(bee_position.x + fl * 2.0-x_offset,0.3,bee_position.z-(cols*2.0-z_offset)  - 6.0)
+			crocus_flower.position = Vector3(fl * 2.0-x_offset,ground_y + 0.3,-(cols*2.0-z_offset) - 6.0)
 			add_child(crocus_flower)
 			print("flower location: ", crocus_flower.position)
 
 	var stone_monument = get_node("Stone_monument")
 	stone_monument.add_to_group("monument")
-	stone_monument.position = Vector3(bee_position.x * 1.5, 0.3,bee_position.z -(2.0-z_offset))
+	stone_monument.position = Vector3(0.0, ground_y + 0.3,-10.0)
 
 
 func _all_flowers_pollinated():

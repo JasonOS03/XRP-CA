@@ -40,10 +40,10 @@ light_color = Color(0.6666667, 0.8, 0.21960784, 1)
 shadow_enabled = true
 
 [node name="BeeRoot" parent="." instance=ExtResource("2_03sxg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.694, 10, -61.479)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="ground" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ground"]
 shape = SubResource("WorldBoundaryShape3D_kxogw")

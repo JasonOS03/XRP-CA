@@ -1,0 +1,43 @@
+[gd_resource type="OpenXRActionMap" format=3]
+
+[sub_resource type="OpenXRAction" id=1]
+resource_name = "trigger"
+localized_name = "Trigger"
+action_type = 1
+toplevel_paths = ["/user/hand/left", "/user/hand/right"]
+
+[sub_resource type="OpenXRAction" id=2]
+resource_name = "trigger_click"
+localized_name = "Trigger click"
+action_type = 0
+toplevel_paths = ["/user/hand/left", "/user/hand/right"]
+
+[sub_resource type="OpenXRAction" id=3]
+resource_name = "grip_click"
+localized_name = "Grip click"
+action_type = 0
+toplevel_paths = ["/user/hand/left", "/user/hand/right"]
+
+[sub_resource type="OpenXRAction" id=4]
+resource_name = "primary_click"
+localized_name = "Thumbstick click"
+action_type = 0
+toplevel_paths = ["/user/hand/left", "/user/hand/right"]
+
+[sub_resource type="OpenXRAction" id=5]
+resource_name = "ax_button"
+localized_name = "A/X button"
+action_type = 0
+toplevel_paths = ["/user/hand/left", "/user/hand/right"]
+
+[sub_resource type="OpenXRAction" id=6]
+resource_name = "by_button"
+localized_name = "B/Y button"
+action_type = 0
+toplevel_paths = ["/user/hand/left", "/user/hand/right"]
+
+[sub_resource type="OpenXRActionSet" id=100]
+resource_name = "godot"
+localized_name = "Godot action set"
+actions = [SubResource(1), SubResource(2), SubResource(3), SubResource(4), SubResource(5), SubResource(6)]
+

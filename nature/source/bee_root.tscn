@@ -1,10 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://ndhrhduvtb8a"]
+[gd_scene load_steps=14 format=3 uid="uid://ndhrhduvtb8a"]
 
 [ext_resource type="PackedScene" uid="uid://blk5tvelk02i5" path="res://nature/source/bee.tscn" id="1_fah20"]
 [ext_resource type="Material" path="res://Holo/bee.tres" id="3_rpu40"]
 [ext_resource type="Script" uid="uid://wfhpv5iawipr" path="res://nature/source/left_hand.gd" id="4_c5u56"]
 [ext_resource type="PackedScene" uid="uid://cqhw276realc" path="res://addons/godot-xr-tools/functions/function_pointer.tscn" id="4_j06po"]
 [ext_resource type="Script" uid="uid://ceq0a6lciookm" path="res://nature/source/righthand.gd" id="5_j06po"]
+[ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="6_6n2k3"]
+[ext_resource type="Script" uid="uid://bwoi35x4bt4pv" path="res://addons/godot-xr-tools/player/player_body.gd" id="7_10rt1"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_c5u56"]
 
@@ -30,10 +32,11 @@ height = 0.5
 radius = 0.84472656
 
 [node name="BeeRoot" type="XROrigin3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0009777844, -0.02996806)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+current = true
 
 [node name="Bee" parent="." instance=ExtResource("1_fah20")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.099807195, 0.013428137, 0.03809756)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.6, -0.2)
 
 [node name="Area3D" type="Area3D" parent="Bee"]
 
@@ -41,49 +44,64 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.099807195, 0.013428137, 0.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.22814164, -0.17264149, 0.2756316)
 shape = SubResource("SphereShape3D_c5u56")
 
-[node name="lefthand" type="XRController3D" parent="."]
+[node name="left_controller" type="XRController3D" parent="."]
 tracker = &"left_hand"
+show_when_tracked = true
 script = ExtResource("4_c5u56")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="lefthand"]
-transform = Transform3D(0.071691066, -0.06971649, -1.0884393e-08, 0.04339955, 0.044628732, 0.078260824, -0.054560695, -0.056106012, 0.06225147, -0.1977977, 0.07724536, 0.2884417)
+[node name="lefthand" type="Node3D" parent="left_controller"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="left_controller/lefthand"]
+transform = Transform3D(0.007774322, -0.09614818, 0.026364494, 0.09683615, 0.013572297, 0.020941623, -0.02371325, 0.023902299, 0.09416138, -0.27078706, 1.0148767, 0.5045637)
 mesh = SubResource("CylinderMesh_c5u56")
 skin = SubResource("Skin_j06po")
 
-[node name="Area3D" type="Area3D" parent="lefthand"]
+[node name="Area3D" type="Area3D" parent="left_controller/lefthand"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="lefthand/Area3D"]
-transform = Transform3D(0.0514785, 0.08573019, -0.0005470595, -0.009229312, 0.004907313, -0.09945219, -0.08523371, 0.051246982, 0.010438517, -0.24193461, 0.004522734, 0.5324641)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="left_controller/lefthand/Area3D"]
+transform = Transform3D(0.0514785, 0.08573019, -0.0005470595, -0.009229312, 0.004907313, -0.09945219, -0.08523371, 0.051246982, 0.010438517, -0.33933085, 0.92523324, 0.5324641)
 shape = SubResource("CylinderShape3D_rpu40")
 
-[node name="FunctionPointer" parent="lefthand" instance=ExtResource("4_j06po")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.0000001, 0, 0, 0)
+[node name="FunctionPointer" parent="left_controller/lefthand" instance=ExtResource("4_j06po")]
+transform = Transform3D(0.02375784, 0.009397282, 0.99967366, -0.3678162, 0.9298985, 0, -0.92959493, -0.36769614, 0.025548857, -0.26222718, 0.9611486, 0.54866344)
 distance = 20.0
 active_button_action = "click_A"
 laser_length = 1
 show_target = true
 collide_with_areas = true
 
-[node name="righthand" type="XRController3D" parent="."]
+[node name="right_controller" type="XRController3D" parent="."]
 tracker = &"right_hand"
+show_when_tracked = true
 script = ExtResource("5_j06po")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="righthand"]
-transform = Transform3D(0.033380695, 0.09426415, 0, -0.07366936, 0.02608769, 0.062387977, 0.0588095, -0.020825537, 0.078152046, -0.19795272, -0.042018306, 0.5370287)
+[node name="righthand" type="Node3D" parent="right_controller"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="right_controller/righthand"]
+transform = Transform3D(-0.0086883195, 0.09523282, -0.029244069, -0.077798374, 0.011849365, 0.06170092, 0.062224783, 0.028112184, 0.07306011, -0.29564822, 1.0299658, 0.27216303)
 mesh = SubResource("CylinderMesh_onw7m")
 surface_material_override/0 = ExtResource("3_rpu40")
 
-[node name="Area3D" type="Area3D" parent="righthand"]
+[node name="Area3D" type="Area3D" parent="right_controller/righthand"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="righthand/Area3D"]
-transform = Transform3D(0.0514785, 0.08573018, -0.0005470609, -0.00922932, 0.0049073165, -0.09945219, -0.0852337, 0.05124699, 0.010438526, -0.23248062, 0.09476951, 0.25119635)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="right_controller/righthand/Area3D"]
+transform = Transform3D(0.0514785, 0.08573018, -0.0005470609, -0.00922932, 0.0049073165, -0.09945219, -0.0852337, 0.05124699, 0.010438526, -0.37557083, 1.0421673, 0.26479712)
 shape = SubResource("CylinderShape3D_6n2k3")
 
-[node name="FunctionPointer" parent="righthand" instance=ExtResource("4_j06po")]
+[node name="FunctionPointer" parent="right_controller/righthand" instance=ExtResource("4_j06po")]
+transform = Transform3D(0.3390991, -0.2034073, 0.91849726, 0.180519, 0.97227067, 0.14867014, -0.9232685, 0.11539227, 0.366415, -0.3, 1.03, 0.272)
 laser_length = 1
 show_target = true
 collide_with_areas = true
 
 [node name="XRCamera3D" type="XRCamera3D" parent="."]
-transform = Transform3D(-0.12723859, -0.020840673, 0.9916532, -0.103522375, 0.994598, 0.007619648, -0.986455, -0.10168878, -0.12870874, -0.08966684, 0.08224462, 0.41990393)
+transform = Transform3D(-0.12723859, -0.020840673, 0.9916532, -0.103522375, 0.994598, 0.007619649, -0.986455, -0.10168878, -0.12870872, 0, 0, 0)
 current = true
+
+[node name="PlayerBody" type="CharacterBody3D" parent="." groups=["player_body"] instance=ExtResource("6_6n2k3")]
+process_priority = -100
+process_physics_priority = -100
+top_level = true
+collision_layer = 524288
+collision_mask = 1023
+script = ExtResource("7_10rt1")

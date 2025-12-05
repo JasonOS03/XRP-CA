@@ -18,6 +18,12 @@ config/icon="res://images/new logo1.png"
 [autoload]
 
 XrSimulator="res://addons/xr-simulator/XRSimulator.tscn"
+XRToolsUserSettings="*res://addons/godot-xr-tools/user_settings/user_settings.gd"
+XRToolsRumbleManager="*res://addons/godot-xr-tools/rumble/rumble_manager.gd"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/godot-xr-tools/plugin.cfg")
 
 [gui]
 
@@ -26,10 +32,21 @@ theme/custom_font="uid://bj0nihy4bcae2"
 
 [input]
 
-click_A={
+a_button={
 "deadzone": 0.2,
-"events": [Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":0,"pressure":0.0,"pressed":false,"script":null)
-]
+"events": []
+}
+primary_click={
+"deadzone": 0.2,
+"events": []
+}
+ax_button={
+"deadzone": 0.2,
+"events": []
+}
+trigger_click={
+"deadzone": 0.2,
+"events": []
 }
 
 [physics]
@@ -88,10 +105,12 @@ META_ENVIRONMENT_DEPTH_TO_CAMERA_PROJECTION_RIGHT={
 [xr]
 
 openxr/enabled=true
-openxr/default_action_map="res://questsdg/openxr_action_map.tres"
+openxr/default_action_map="uid://hl62d7xgy5en"
 openxr/environment_blend_mode=2
 openxr/startup_alert=false
 openxr/extensions/hand_tracking=true
+openxr/extensions/hand_tracking_controller_data_source=true
+openxr/binding_modifiers/dpad_binding=true
 shaders/enabled=true
 openxr/extensions/meta/passthrough=true
 openxr/extensions/meta/color_space/starting_color_space=3
