@@ -7,9 +7,6 @@ func _ready() -> void:
 	pointer.distance = 20.0
 	pointer.show_laser = XRToolsFunctionPointer.LaserShow.SHOW
 	pointer.active_button_action = "godot/ax_button"
-	var xr = XRServer.find_interface("OpenXR")
-	if xr:
-		print("Active action set: ",xr.get_action_sets())
 
 	# Connect the pointer signal
 	pointer.pointing_event.connect(_on_pointer_event)
@@ -38,8 +35,11 @@ func _on_pointer_event(event: XRToolsPointerEvent) -> void:
 				triggered = true
 				break
 			target = target.get_parent()
-		if not triggered and event.target:
+		if not triggered and event.target and event.target.is_in_group("ground"):
 			print("Teleporting...")
 			var bee_root = get_tree().get_current_scene().get_node("PlayerRig")
-			bee_root.global_transform.origin = event.position
+			var teleport_tween = get_tree().create_tween()
+			teleport_tween.tween_property(bee_root,"global_transform:origin",event.position,0.7)
+			teleport_tween.set_trans(Tween.TRANS_SINE)
+			teleport_tween.set_ease(Tween.EASE_IN_OUT)
 			print("Teleported to:", bee_root.global_transform.origin)
