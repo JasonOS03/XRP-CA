@@ -39,7 +39,9 @@ transform = Transform3D(-0.9672678, -0.12030363, 0.2234281, 0, 0.88047737, 0.474
 light_color = Color(0.6666667, 0.8, 0.21960784, 1)
 shadow_enabled = true
 
-[node name="BeeRoot" parent="." instance=ExtResource("2_03sxg")]
+[node name="PlayerRig" type="Node3D" parent="."]
+
+[node name="BeeRoot" parent="PlayerRig" instance=ExtResource("2_03sxg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="ground" type="StaticBody3D" parent="."]

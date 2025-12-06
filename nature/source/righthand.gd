@@ -6,21 +6,40 @@ func _ready() -> void:
 	pointer.enabled = true
 	pointer.distance = 20.0
 	pointer.show_laser = XRToolsFunctionPointer.LaserShow.SHOW
-	pointer.laser_length = XRToolsFunctionPointer.LaserLength.COLLIDE
-	pointer.pointing_event.connect(_on_pointer_pressed)
+	pointer.active_button_action = "godot/ax_button"
+	var xr = XRServer.find_interface("OpenXR")
+	if xr:
+		print("Active action set: ",xr.get_action_sets())
 
-func _on_pointer_pressed(Event:Variant) -> void:
-	print(Event)
-	if  Event.action == "primary_click" or Event.action == "a_button" or Event.action == "trigger_click" and Event.pressed:
-		var target_area = Event.target
-		print("button pressed")
-		if target_area and target_area.has_method("_bee_click"):
-			target_area._bee_click()
-			print("Calling _bee_click on:", target_area.name)
-		elif target_area and target_area.get_parent().has_method("_bee_click"):
-			target_area.get_parent()._bee_click()
-		elif target_area:
-			print("teleporting...")
-			var bee_root = get_parent()
-			bee_root.global_transform.origin = Event.collision_point
-			print("teleported")
+	# Connect the pointer signal
+	pointer.pointing_event.connect(_on_pointer_event)
+
+
+
+func _on_pointer_event(event: XRToolsPointerEvent) -> void:
+ 
+	# Debug print to see what comes in
+	var type_change = event.event_type
+	if event.event_type == 0:
+		type_change = XRToolsPointerEvent.Type.PRESSED
+	elif event.event_type == 1:
+		type_change = XRToolsPointerEvent.Type.RELEASED
+	elif event.event_type == 4:
+		type_change = XRToolsPointerEvent.Type.MOVED
+	# Handle A button press
+	if type_change == XRToolsPointerEvent.Type.PRESSED:
+		print("A button press detected via signal")
+		var target = event.target
+		var triggered = false
+		while target:
+			if target and target.has_method("_bee_click"):
+				target._bee_click()
+				print("Calling _bee_click on:", target.name)
+				triggered = true
+				break
+			target = target.get_parent()
+		if not triggered and event.target:
+			print("Teleporting...")
+			var bee_root = get_tree().get_current_scene().get_node("PlayerRig")
+			bee_root.global_transform.origin = event.position
+			print("Teleported to:", bee_root.global_transform.origin)

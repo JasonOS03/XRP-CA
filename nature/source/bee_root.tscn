@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://ndhrhduvtb8a"]
+[gd_scene load_steps=13 format=3 uid="uid://ndhrhduvtb8a"]
 
 [ext_resource type="PackedScene" uid="uid://blk5tvelk02i5" path="res://nature/source/bee.tscn" id="1_fah20"]
 [ext_resource type="Material" path="res://Holo/bee.tres" id="3_rpu40"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://cqhw276realc" path="res://addons/godot-xr-tools/functions/function_pointer.tscn" id="4_j06po"]
 [ext_resource type="Script" uid="uid://ceq0a6lciookm" path="res://nature/source/righthand.gd" id="5_j06po"]
 [ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="6_6n2k3"]
-[ext_resource type="Script" uid="uid://bwoi35x4bt4pv" path="res://addons/godot-xr-tools/player/player_body.gd" id="7_10rt1"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_c5u56"]
 
@@ -36,7 +35,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 current = true
 
 [node name="Bee" parent="." instance=ExtResource("1_fah20")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.6, -0.2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0, -0.4)
 
 [node name="Area3D" type="Area3D" parent="Bee"]
 
@@ -49,25 +48,26 @@ tracker = &"left_hand"
 show_when_tracked = true
 script = ExtResource("4_c5u56")
 
-[node name="lefthand" type="Node3D" parent="left_controller"]
+[node name="lefthand" type="XRNode3D" parent="left_controller"]
+tracker = &"left_hand"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="left_controller/lefthand"]
-transform = Transform3D(0.007774322, -0.09614818, 0.026364494, 0.09683615, 0.013572297, 0.020941623, -0.02371325, 0.023902299, 0.09416138, -0.27078706, 1.0148767, 0.5045637)
+transform = Transform3D(0.007774322, -0.09614818, 0.026364494, 0.09683615, 0.013572297, 0.020941623, -0.02371325, 0.023902299, 0.09416138, -0.271, 0.661, 0.505)
 mesh = SubResource("CylinderMesh_c5u56")
 skin = SubResource("Skin_j06po")
 
 [node name="Area3D" type="Area3D" parent="left_controller/lefthand"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="left_controller/lefthand/Area3D"]
-transform = Transform3D(0.0514785, 0.08573019, -0.0005470595, -0.009229312, 0.004907313, -0.09945219, -0.08523371, 0.051246982, 0.010438517, -0.33933085, 0.92523324, 0.5324641)
+transform = Transform3D(0.0514785, 0.08573019, -0.0005470595, -0.009229312, 0.004907313, -0.09945219, -0.08523371, 0.051246982, 0.010438517, -0.339, 0.661, 0.532)
 shape = SubResource("CylinderShape3D_rpu40")
 
 [node name="FunctionPointer" parent="left_controller/lefthand" instance=ExtResource("4_j06po")]
-transform = Transform3D(0.02375784, 0.009397282, 0.99967366, -0.3678162, 0.9298985, 0, -0.92959493, -0.36769614, 0.025548857, -0.26222718, 0.9611486, 0.54866344)
+transform = Transform3D(-9.1694885e-10, -0.020977344, 0.99978006, 1, -4.371139e-08, 0, 4.3701768e-08, 0.99977994, 0.020977346, -0.4584108, 0.68537235, 0.53512555)
 distance = 20.0
-active_button_action = "click_A"
 laser_length = 1
 show_target = true
+collision_mask = 5242881
 collide_with_areas = true
 
 [node name="right_controller" type="XRController3D" parent="."]
@@ -75,33 +75,35 @@ tracker = &"right_hand"
 show_when_tracked = true
 script = ExtResource("5_j06po")
 
-[node name="righthand" type="Node3D" parent="right_controller"]
+[node name="righthand" type="XRNode3D" parent="right_controller"]
+tracker = &"right_hand"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="right_controller/righthand"]
-transform = Transform3D(-0.0086883195, 0.09523282, -0.029244069, -0.077798374, 0.011849365, 0.06170092, 0.062224783, 0.028112184, 0.07306011, -0.29564822, 1.0299658, 0.27216303)
+transform = Transform3D(-0.0086883195, 0.09523282, -0.029244069, -0.077798374, 0.011849365, 0.06170092, 0.062224783, 0.028112184, 0.07306011, -0.296, 0.661, 0.272)
 mesh = SubResource("CylinderMesh_onw7m")
 surface_material_override/0 = ExtResource("3_rpu40")
 
 [node name="Area3D" type="Area3D" parent="right_controller/righthand"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="right_controller/righthand/Area3D"]
-transform = Transform3D(0.0514785, 0.08573018, -0.0005470609, -0.00922932, 0.0049073165, -0.09945219, -0.0852337, 0.05124699, 0.010438526, -0.37557083, 1.0421673, 0.26479712)
+transform = Transform3D(0.0514785, 0.08573018, -0.0005470609, -0.00922932, 0.0049073165, -0.09945219, -0.0852337, 0.05124699, 0.010438526, -0.376, 0.661, 0.265)
 shape = SubResource("CylinderShape3D_6n2k3")
 
 [node name="FunctionPointer" parent="right_controller/righthand" instance=ExtResource("4_j06po")]
-transform = Transform3D(0.3390991, -0.2034073, 0.91849726, 0.180519, 0.97227067, 0.14867014, -0.9232685, 0.11539227, 0.366415, -0.3, 1.03, 0.272)
-laser_length = 1
+transform = Transform3D(0.16652319, 0.20564634, 0.9643545, -0.77715695, 0.62930685, 0, -0.6068749, -0.7494548, 0.26461366, -0.49550205, 0.7047951, 0.21641172)
+active_button_action = "godot/ax_button"
 show_target = true
+target_radius = 0.2
+collision_mask = 5242881
 collide_with_areas = true
 
 [node name="XRCamera3D" type="XRCamera3D" parent="."]
 transform = Transform3D(-0.12723859, -0.020840673, 0.9916532, -0.103522375, 0.994598, 0.007619649, -0.986455, -0.10168878, -0.12870872, 0, 0, 0)
 current = true
 
-[node name="PlayerBody" type="CharacterBody3D" parent="." groups=["player_body"] instance=ExtResource("6_6n2k3")]
-process_priority = -100
-process_physics_priority = -100
-top_level = true
-collision_layer = 524288
-collision_mask = 1023
-script = ExtResource("7_10rt1")
+[node name="Label3D" type="Label3D" parent="XRCamera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4, 0.3, -0.5)
+pixel_size = 0.0011
+text = "Pollination Count: "
+
+[node name="PlayerBody" parent="." instance=ExtResource("6_6n2k3")]

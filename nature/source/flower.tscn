@@ -18,8 +18,6 @@ angular_velocity_min = -1.6093254e-05
 angular_velocity_max = 42.349983
 hue_variation_min = 0.17999998
 hue_variation_max = 0.17999998
-anim_speed_min = 3.01
-anim_speed_max = 3.01
 turbulence_enabled = true
 turbulence_noise_strength = 8.13
 turbulence_noise_speed = Vector3(0.3, 0.5, 0.1)
@@ -189,8 +187,8 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_vm6nl")
 
 [node name="Area3D" type="Area3D" groups=["flower"]]
+process_priority = 10
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
-collision_layer = 1048576
 input_capture_on_drag = true
 script = ExtResource("1_6sgmj")
 
@@ -205,7 +203,6 @@ shape = SubResource("BoxShape3D_4nhx7")
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
-transparency = 0.12
 emitting = false
 one_shot = true
 explosiveness = 0.12

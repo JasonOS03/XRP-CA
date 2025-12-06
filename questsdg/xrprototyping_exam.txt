@@ -1,0 +1,30 @@
+
+Q1 Short Q's
+A FOSS			
+B manipulating transforms
+c creating walls
+D signals
+e  code related to meshes 
+f preternians
+g tweens
+h particles system   
+
+
+Q2 XR systems in Godot 
+
+different installations for quest development
+different nodes to create a systems
+software for XR
+systems from questsdg
+
+
+
+Q3 Tank game 
+(a) systems from tank game movement shooting collisions etc
+(b) another systems from tank game 
+
+
+
+
+
+Q4 Vector operations, using GIT, AudioSystem Questssdg
