@@ -43,3 +43,11 @@ func _on_pointer_event(event: XRToolsPointerEvent) -> void:
 			teleport_tween.set_trans(Tween.TRANS_SINE)
 			teleport_tween.set_ease(Tween.EASE_IN_OUT)
 			print("Teleported to:", bee_root.global_transform.origin)
+			
+		if not triggered and event.target and event.target.is_in_group("monument"):
+			while event.target:
+				if event.target.has_method("_monument_click"):
+					event.target._monument_click()
+					print("calling _monument_click on: ", event.target.name)
+					break
+				event.target = event.target.get_parent()
