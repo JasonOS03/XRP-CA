@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://ndhrhduvtb8a"]
+[gd_scene load_steps=14 format=3 uid="uid://ndhrhduvtb8a"]
 
 [ext_resource type="PackedScene" uid="uid://blk5tvelk02i5" path="res://nature/source/bee.tscn" id="1_fah20"]
 [ext_resource type="Material" path="res://Holo/bee.tres" id="3_rpu40"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cqhw276realc" path="res://addons/godot-xr-tools/functions/function_pointer.tscn" id="4_j06po"]
 [ext_resource type="Script" uid="uid://ceq0a6lciookm" path="res://nature/source/righthand.gd" id="5_j06po"]
 [ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="6_6n2k3"]
+[ext_resource type="AudioStream" uid="uid://dsrrl32x0kwwv" path="res://sounds/bumblebee-amp-birds-ambience-202545.mp3" id="7_6n2k3"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_c5u56"]
 
@@ -107,3 +108,7 @@ pixel_size = 0.0011
 text = "Pollination Count: "
 
 [node name="PlayerBody" parent="." instance=ExtResource("6_6n2k3")]
+
+[node name="buzzing_sounds" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("7_6n2k3")
+volume_db = 3.107

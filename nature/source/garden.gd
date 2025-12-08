@@ -15,6 +15,7 @@ func _ready() -> void:
 	var offset_x = 2 * 2.0 / 2.0
 	var offset_z = 2 * 2.0 / 2.0
 	var ground_y = $ground.global_transform.origin.y
+	play_sounds()
 
 	for fl in range(flower_rows):
 		for cols in range(flower_cols):
@@ -44,7 +45,11 @@ func _all_flowers_pollinated():
 		print("remaining flowers left to pollinate: ",
 			  get_tree().get_nodes_in_group("flower").size() - total_flowers_pollinated)
 
-		
+func play_sounds() -> void:
+	var garden_music = get_node_or_null("garden_music")
+	garden_music.play()
+	var bee_sounds = get_node_or_null("PlayerRig/BeeRoot/buzzing_sounds")
+	bee_sounds.play()
 
 	
 	
