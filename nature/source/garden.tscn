@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c6ow5eaoce1p5"]
+[gd_scene load_steps=12 format=3 uid="uid://c6ow5eaoce1p5"]
 
 [ext_resource type="ArrayMesh" uid="uid://hwt2tjn7l2g7" path="res://nature/10450_Rectangular_Grass_Patch_L3.123c827d110a-1347-4381-9208-e4f735762647/10450_Rectangular_Grass_Patch_v1_iterations-2.obj" id="1_87o5b"]
 [ext_resource type="Script" uid="uid://dehu7x4vk4kp7" path="res://nature/source/garden.gd" id="1_286k1"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://ndhrhduvtb8a" path="res://nature/source/bee_root.tscn" id="2_03sxg"]
 [ext_resource type="PackedScene" uid="uid://r0b0ldgmxik" path="res://stone_monument.tscn" id="5_hin4i"]
 [ext_resource type="AudioStream" uid="uid://yxnxotv4o7uq" path="res://sounds/kyoto-garden-420939.mp3" id="6_73gj7"]
+[ext_resource type="AudioStream" uid="uid://bnjoaplftdbuv" path="res://sounds/goodresult-82807.mp3" id="7_qbwtj"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_womic"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -66,3 +67,7 @@ uppercase = true
 
 [node name="garden_music" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("6_73gj7")
+
+[node name="victory_music" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("7_qbwtj")
+volume_db = 6.214

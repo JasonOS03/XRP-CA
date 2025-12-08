@@ -40,6 +40,8 @@ func _all_flowers_pollinated():
 
 	if total_flowers_pollinated >= get_tree().get_nodes_in_group("flower").size():
 		print("you have pollinated all of the flowers")
+		var game_won_music = get_node_or_null("victory_music")
+		game_won_music.play()
 		count_label.text = str("All flowers pollinated!")
 	else:
 		print("remaining flowers left to pollinate: ",
@@ -47,9 +49,12 @@ func _all_flowers_pollinated():
 
 func play_sounds() -> void:
 	var garden_music = get_node_or_null("garden_music")
+	garden_music.stream.loop = true
 	garden_music.play()
 	var bee_sounds = get_node_or_null("PlayerRig/BeeRoot/buzzing_sounds")
+	bee_sounds.stream.loop = true
 	bee_sounds.play()
+	
 
 	
 	
