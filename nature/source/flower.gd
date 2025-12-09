@@ -14,15 +14,17 @@ func _ready() -> void:
 	
 func _bee_click():
 	print("Flower clicked:")
-	print("Pollination triggered")
-	particles.restart()
-	unbloomed_mesh.visible = false;
-	bloomed_mesh.visible = true;
-	if particles.draw_pass_1:
-		particles.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_ON
-	if pollinated_count == 0:
-		pollinated_count = 1
-	print("Number pollinated: ", pollinated_count)
-	get_parent()._all_flowers_pollinated()
+	if not bloomed_mesh.visible:
+		print("Flower not yet bloomed: Pollination triggered")
+		particles.restart()
+		unbloomed_mesh.visible = false;
+		bloomed_mesh.visible = true;
+		bloomed_mesh.scale = Vector3(0.01,0.01,0.01)
+		if particles.draw_pass_1:
+			particles.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_ON
+		if pollinated_count == 0:
+			pollinated_count = 1
+		print("Number pollinated: ", pollinated_count)
+		get_parent()._all_flowers_pollinated()
 	return pollinated_count
 	

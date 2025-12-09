@@ -6,7 +6,7 @@ var flower_rows := 4
 var flower_cols := 4
 var count_label: Label3D
 @export var total_flowers_pollinated: int = 0
-var tree_rows := 20
+var tree_rows := 40
 
 func _ready() -> void:
 
@@ -29,7 +29,7 @@ func _ready() -> void:
 
 	var stone_monument = get_node("Stone_monument")
 	stone_monument.add_to_group("monument")
-	stone_monument.position = Vector3(0.0, ground_y + 0.1,-10.0)
+	stone_monument.position = Vector3(0.0, ground_y + 0.1,-13.0)
 	
 	spawn_trees()
 
