@@ -39,7 +39,7 @@ func _on_pointer_event(event: XRToolsPointerEvent) -> void:
 			print("Teleporting...")
 			var bee_root = get_tree().get_current_scene().get_node("PlayerRig")
 			var teleport_tween = get_tree().create_tween()
-			teleport_tween.tween_property(bee_root,"global_transform:origin",event.position,0.7)
+			teleport_tween.tween_property(bee_root,"global_transform:origin",event.position,2.0)
 			teleport_tween.set_trans(Tween.TRANS_SINE)
 			teleport_tween.set_ease(Tween.EASE_IN_OUT)
 			print("Teleported to:", bee_root.global_transform.origin)
@@ -49,5 +49,14 @@ func _on_pointer_event(event: XRToolsPointerEvent) -> void:
 				if event.target.has_method("_monument_click"):
 					event.target._monument_click()
 					print("calling _monument_click on: ", event.target.name)
+					break
+				event.target = event.target.get_parent()
+
+	
+		if not triggered and event.target and event.target.is_in_group("sign"):
+			while event.target:
+				if event.target.has_method("_sign_click"):
+					event.target._sign_click()
+					print("calling _sign_click on: ", event.target.name)
 					break
 				event.target = event.target.get_parent()

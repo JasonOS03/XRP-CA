@@ -2,6 +2,7 @@ extends Node3D
 
 var flower := preload("res://nature/source/flower.tscn")
 var tree := preload("res://detailed_tree.tscn")
+var wooden_sign := preload("res://woodensign2.tscn")
 var flower_rows := 4
 var flower_cols := 4
 var count_label: Label3D
@@ -32,6 +33,7 @@ func _ready() -> void:
 	stone_monument.position = Vector3(0.0, ground_y + 0.01,-13.0)
 	
 	spawn_trees()
+	spawn_sign()
 
 
 func _all_flowers_pollinated():
@@ -65,34 +67,39 @@ func spawn_trees() -> void:
 		var spawned_tree = tree.instantiate()
 		add_child(spawned_tree)
 		spawned_tree.add_to_group("tree")
-		spawned_tree.position = Vector3(randf_range(-40,40),ground_y_position,40)
+		spawned_tree.position = Vector3(randf_range(-60,60),ground_y_position,40)
 		
 	for trees in range(tree_rows):
 		var spawned_tree = tree.instantiate()
 		add_child(spawned_tree)
 		spawned_tree.add_to_group("tree")
-		spawned_tree.position = Vector3(randf_range(-40,40),ground_y_position,30)
+		spawned_tree.position = Vector3(randf_range(-60,60),ground_y_position,30)
 		
 	for trees in range(tree_rows):
 		var spawned_tree = tree.instantiate()
 		add_child(spawned_tree)
 		spawned_tree.add_to_group("tree")
-		spawned_tree.position = Vector3(randf_range(-40,40),ground_y_position + 0.01,-40)
+		spawned_tree.position = Vector3(randf_range(-60,60),ground_y_position + 0.01,-40)
 		
 	for trees in range(tree_rows):
 		var spawned_tree = tree.instantiate()
 		add_child(spawned_tree)
 		spawned_tree.add_to_group("tree")
-		spawned_tree.position = Vector3(40,ground_y_position + 0.01,randf_range(-40,40))
+		spawned_tree.position = Vector3(40,ground_y_position,randf_range(-60,60))
 		
 	for trees in range(tree_rows):
 		var spawned_tree = tree.instantiate()
 		add_child(spawned_tree)
 		spawned_tree.add_to_group("tree")
-		spawned_tree.position = Vector3(-40,ground_y_position + 0.01,randf_range(-40,40))
+		spawned_tree.position = Vector3(-40,ground_y_position,randf_range(-60,60))
 		
-		
-		
+func spawn_sign() -> void:
+	var ground_y_position = $ground.global_transform.origin.y
+	var spawned_sign = wooden_sign.instantiate()
+	add_child(spawned_sign)
+	spawned_sign.add_to_group("sign")
+	spawned_sign.position = Vector3(randf_range(-20,40),ground_y_position,randf_range(-40,20))
+	print("Sign location: ",spawned_sign.position)
 
 	
 	

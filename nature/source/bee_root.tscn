@@ -73,6 +73,7 @@ collision_mask = 5242881
 collide_with_areas = true
 
 [node name="right_controller" type="XRController3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, -0.5)
 tracker = &"right_hand"
 show_when_tracked = true
 script = ExtResource("5_j06po")

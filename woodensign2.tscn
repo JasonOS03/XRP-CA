@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://c4y2423tkth8t"]
+
+[ext_resource type="Script" uid="uid://mgmb8b3ptypx" path="res://woodensign_2.gd" id="1_bxbne"]
+[ext_resource type="PackedScene" uid="uid://chif30udhwxah" path="res://nature/source/wooden_sign_4_dark.glb" id="1_yatt7"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bxbne"]
+size = Vector3(1.9482574, 3.268158, 1)
+
+[node name="sign3D" type="Area3D" groups=["sign"]]
+script = ExtResource("1_bxbne")
+
+[node name="wooden_sign_4_dark" parent="." instance=ExtResource("1_yatt7")]
+
+[node name="fun_fact_label" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0.2)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.03263092, 1.134079, 0)
+shape = SubResource("BoxShape3D_bxbne")
