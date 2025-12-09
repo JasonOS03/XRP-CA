@@ -6,7 +6,7 @@ var flower_rows := 4
 var flower_cols := 4
 var count_label: Label3D
 @export var total_flowers_pollinated: int = 0
-var tree_rows := 40
+var tree_rows := 30
 
 func _ready() -> void:
 
@@ -23,13 +23,13 @@ func _ready() -> void:
 		for cols in range(flower_cols):
 			var crocus_flower = flower.instantiate()
 			crocus_flower.add_to_group("flower")
-			crocus_flower.position = Vector3(fl * 2.0-offset_x,ground_y + 0.1,-(cols*2.0-offset_z) - 6.0)
+			crocus_flower.position = Vector3(fl * 2.0-offset_x,ground_y + 0.01,-(cols*2.0-offset_z) - 6.0)
 			add_child(crocus_flower)
 			print("flower location: ", crocus_flower.position)
 
 	var stone_monument = get_node("Stone_monument")
 	stone_monument.add_to_group("monument")
-	stone_monument.position = Vector3(0.0, ground_y + 0.1,-13.0)
+	stone_monument.position = Vector3(0.0, ground_y + 0.01,-13.0)
 	
 	spawn_trees()
 
@@ -65,7 +65,32 @@ func spawn_trees() -> void:
 		var spawned_tree = tree.instantiate()
 		add_child(spawned_tree)
 		spawned_tree.add_to_group("tree")
-		spawned_tree.position = Vector3(randf_range(-20,20),ground_y_position + 0.1,40)
+		spawned_tree.position = Vector3(randf_range(-40,40),ground_y_position,40)
+		
+	for trees in range(tree_rows):
+		var spawned_tree = tree.instantiate()
+		add_child(spawned_tree)
+		spawned_tree.add_to_group("tree")
+		spawned_tree.position = Vector3(randf_range(-40,40),ground_y_position,30)
+		
+	for trees in range(tree_rows):
+		var spawned_tree = tree.instantiate()
+		add_child(spawned_tree)
+		spawned_tree.add_to_group("tree")
+		spawned_tree.position = Vector3(randf_range(-40,40),ground_y_position + 0.01,-40)
+		
+	for trees in range(tree_rows):
+		var spawned_tree = tree.instantiate()
+		add_child(spawned_tree)
+		spawned_tree.add_to_group("tree")
+		spawned_tree.position = Vector3(40,ground_y_position + 0.01,randf_range(-40,40))
+		
+	for trees in range(tree_rows):
+		var spawned_tree = tree.instantiate()
+		add_child(spawned_tree)
+		spawned_tree.add_to_group("tree")
+		spawned_tree.position = Vector3(-40,ground_y_position + 0.01,randf_range(-40,40))
+		
 		
 		
 

@@ -50,7 +50,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ground"]
-transform = Transform3D(19.999943, -0.047821976, 0, 0.047821976, 19.999943, 0, 0, 0, 20, 0, 0, 0)
+transform = Transform3D(19.999943, -0.047821976, 0, 0.047821976, 19.999943, 0, 0, 0, 20, 0, -0.5, 0)
 shape = SubResource("WorldBoundaryShape3D_kxogw")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="ground"]

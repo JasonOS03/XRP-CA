@@ -11,6 +11,8 @@ func _monument_click():
 	print ("restart triggered")
 	var tree = get_tree()
 	tree.reload_current_scene()
+	var restart_tween = create_tween()
+	restart_tween.set_ease(Tween.EASE_OUT_IN)
 	
 	
 	
