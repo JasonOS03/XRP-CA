@@ -5,4 +5,4 @@
 [node name="TreeScene" type="Node3D"]
 
 [node name="Tree" parent="." groups=["tree"] instance=ExtResource("1_re377")]
-transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 0, 0, 0)
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)

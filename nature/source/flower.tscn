@@ -231,21 +231,21 @@ draw_skin = SubResource("Skin_48q2c")
 visible = false
 
 [node name="QuadPatch13_Rose Leaves_0" type="MeshInstance3D" parent="BloomedMesh2"]
-transform = Transform3D(0.1, 0, 0, 0, -4.371139e-09, 0.1, 0, -0.1, -4.371139e-09, -0.23574926, -0.10047948, 0.36090216)
+transform = Transform3D(-4.371139e-09, -0.1, 0, 0.1, -4.371139e-09, 0, 0, 0, 0.1, -0.23574926, -0.10047948, 0.36090216)
 mesh = SubResource("ArrayMesh_bbwbe")
 skeleton = NodePath("")
 
 [node name="QuadPatch13_RosePedalsRed_0" type="MeshInstance3D" parent="BloomedMesh2"]
-transform = Transform3D(0.1, 0, 0, 0, -4.371139e-09, 0.1, 0, -0.1, -4.371139e-09, -0.23574926, -0.10047948, 0.36090216)
+transform = Transform3D(-4.371139e-09, -0.1, 0, 0.1, -4.371139e-09, 0, 0, 0, 0.1, -0.23574926, -0.10047948, 0.36090216)
 mesh = SubResource("ArrayMesh_g1wt8")
 skeleton = NodePath("")
 
 [node name="QuadPatch13_RoseBottom_0" type="MeshInstance3D" parent="BloomedMesh2"]
-transform = Transform3D(0.1, 0, 0, 0, -4.371139e-09, 0.1, 0, -0.1, -4.371139e-09, -0.23574926, -0.10047948, 0.36090216)
+transform = Transform3D(-4.371139e-09, -0.1, 0, 0.1, -4.371139e-09, 0, 0, 0, 0.1, -0.23574926, -0.10047948, 0.36090216)
 mesh = SubResource("ArrayMesh_5e83s")
 skeleton = NodePath("")
 
 [node name="QuadPatch13_Rose Spikes_0" type="MeshInstance3D" parent="BloomedMesh2"]
-transform = Transform3D(0.1, 0, 0, 0, -4.371139e-09, 0.1, 0, -0.1, -4.371139e-09, -0.23574926, -0.10047948, 0.36090216)
+transform = Transform3D(-4.371139e-09, -0.1, 0, 0.1, -4.371139e-09, 0, 0, 0, 0.1, -0.23574926, -0.10047948, 0.36090216)
 mesh = SubResource("ArrayMesh_qwl8s")
 skeleton = NodePath("")

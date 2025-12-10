@@ -17,20 +17,20 @@ func _ready() -> void:
 	print("Bee position: ",bee_root.global_transform.origin)
 	var offset_x = 2 * 2.0 / 2.0
 	var offset_z = 2 * 2.0 / 2.0
-	var ground_y = $ground.global_transform.origin.y
+	var ground_y = 0.0
 	play_sounds()
 
 	for fl in range(flower_rows):
 		for cols in range(flower_cols):
 			var crocus_flower = flower.instantiate()
 			crocus_flower.add_to_group("flower")
-			crocus_flower.position = Vector3(fl * 2.0-offset_x,ground_y + 0.01,-(cols*2.0-offset_z) - 6.0)
+			crocus_flower.position = Vector3(fl * 2.0-offset_x,ground_y,-(cols*2.0-offset_z) - 6.0)
 			add_child(crocus_flower)
 			print("flower location: ", crocus_flower.position)
 
 	var stone_monument = get_node("Stone_monument")
 	stone_monument.add_to_group("monument")
-	stone_monument.position = Vector3(0.0, ground_y + 0.01,-13.0)
+	stone_monument.position = Vector3(0.0, ground_y,-16.0)
 	
 	spawn_trees()
 	spawn_sign()
@@ -62,7 +62,7 @@ func play_sounds() -> void:
 	bee_sounds.play()
 	
 func spawn_trees() -> void:
-	var ground_y_position = $ground.global_transform.origin.y
+	var ground_y_position = 0.0
 	for trees in range(tree_rows):
 		var spawned_tree = tree.instantiate()
 		add_child(spawned_tree)
@@ -79,7 +79,7 @@ func spawn_trees() -> void:
 		var spawned_tree = tree.instantiate()
 		add_child(spawned_tree)
 		spawned_tree.add_to_group("tree")
-		spawned_tree.position = Vector3(randf_range(-60,60),ground_y_position + 0.01,-40)
+		spawned_tree.position = Vector3(randf_range(-60,60),ground_y_position,-40)
 		
 	for trees in range(tree_rows):
 		var spawned_tree = tree.instantiate()
@@ -94,11 +94,13 @@ func spawn_trees() -> void:
 		spawned_tree.position = Vector3(-40,ground_y_position,randf_range(-60,60))
 		
 func spawn_sign() -> void:
+	var aabb = $ground.get_node("MeshInstance3D").get_aabb()
 	var ground_y_position = $ground.global_transform.origin.y
+	var mesh_y_position = ground_y_position + (aabb.size.y * 0.002)
 	var spawned_sign = wooden_sign.instantiate()
 	add_child(spawned_sign)
 	spawned_sign.add_to_group("sign")
-	spawned_sign.position = Vector3(randf_range(-20,40),ground_y_position,randf_range(-40,20))
+	spawned_sign.position = Vector3(randf_range(-20,40),mesh_y_position,randf_range(-40,20))
 	print("Sign location: ",spawned_sign.position)
 
 	
