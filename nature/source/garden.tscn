@@ -54,7 +54,7 @@ transform = Transform3D(19.999943, -0.047821976, 0, 0.047821976, 19.999943, 0, 0
 shape = SubResource("WorldBoundaryShape3D_kxogw")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="ground"]
-transform = Transform3D(0.9982646, -0.058876444, 0.0011777736, 0, 0.020000154, 0.9997999, -0.058888227, -0.9980649, 0.019965446, 12.33527, -13.024826, -12.329128)
+transform = Transform3D(0.9982646, -0.058876444, 0.0011777736, 0, 0.020000154, 0.9997999, -0.058888227, -0.9980649, 0.019965446, 12.335, -10.025, -12.329)
 mesh = ExtResource("1_87o5b")
 
 [node name="pollinated_count_label" type="Label" parent="."]

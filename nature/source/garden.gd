@@ -94,13 +94,11 @@ func spawn_trees() -> void:
 		spawned_tree.position = Vector3(-40,ground_y_position,randf_range(-60,60))
 		
 func spawn_sign() -> void:
-	var aabb = $ground.get_node("MeshInstance3D").get_aabb()
-	var ground_y_position = $ground.global_transform.origin.y
-	var mesh_y_position = ground_y_position + (aabb.size.y * 0.002)
+	var ground_y_position = 0.0
 	var spawned_sign = wooden_sign.instantiate()
 	add_child(spawned_sign)
 	spawned_sign.add_to_group("sign")
-	spawned_sign.position = Vector3(randf_range(-20,40),mesh_y_position,randf_range(-40,20))
+	spawned_sign.position = Vector3(randf_range(-20,40),ground_y_position,randf_range(-40,20))
 	print("Sign location: ",spawned_sign.position)
 
 	

@@ -39,7 +39,7 @@ func _on_pointer_event(event: XRToolsPointerEvent) -> void:
 			print("Teleporting...")
 			var bee_root = get_tree().get_current_scene().get_node("PlayerRig")
 			var teleport_tween = get_tree().create_tween()
-			teleport_tween.tween_property(bee_root,"global_transform:origin",event.position,2.0)
+			teleport_tween.tween_property(bee_root,"global_transform:origin",event.position,2.1)
 			teleport_tween.set_trans(Tween.TRANS_SINE)
 			teleport_tween.set_ease(Tween.EASE_IN_OUT)
 			print("Teleported to:", bee_root.global_transform.origin)
