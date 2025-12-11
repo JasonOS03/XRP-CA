@@ -10,8 +10,6 @@ Project Title: PollinatorXR – an XR flower pollinator simulator
 
 # Video
 
-# Project Proposal 
-
 # Screenshots
 
 # Description of the project
@@ -64,6 +62,7 @@ Tree mesh: imported 3D model from Free3D.com
 
 # What I learned
 
+# Project Proposal
 
 Project Idea:  
 
