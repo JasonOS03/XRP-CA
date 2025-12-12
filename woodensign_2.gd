@@ -4,12 +4,14 @@ var wooden_sign_label: Label3D
 
 func _ready() -> void:
 	wooden_sign_label = get_node("fun_fact_label")
-	wooden_sign_label.visible = false
+	wooden_sign_label.visible = false # fun fact label is invisible initially
 
 func _sign_click():
 	print("sign clicked")
+	# if not already visible, make it visible
 	if not wooden_sign_label.visible:
 		wooden_sign_label.visible = true
+		# add the text to the label
 		wooden_sign_label.text = "Fun Fact: over 35% of food crops, such as fruit and vegetables rely on pollinators"
 		
 	

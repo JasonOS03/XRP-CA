@@ -7,6 +7,7 @@
 size = Vector3(1.9482574, 3.268158, 1)
 
 [node name="sign3D" type="Area3D" groups=["sign"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 script = ExtResource("1_bxbne")
 
 [node name="wooden_sign_4_dark" parent="." instance=ExtResource("1_yatt7")]

@@ -202,12 +202,12 @@ shadow_mesh = SubResource("ArrayMesh_vm6nl")
 
 [node name="Area3D" type="Area3D" groups=["flower"]]
 process_priority = 10
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -1, 0)
 input_capture_on_drag = true
 script = ExtResource("1_6sgmj")
 
 [node name="12974CrocusFlowerV1L4" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.001396079, -0.049980506, -2.1847173e-09, 0, -2.1855695e-09, 0.05, -0.049980506, -0.001396079, -6.102455e-11, 0, 0, 0)
+transform = Transform3D(0.001396079, -0.049980506, -2.1847173e-09, 0, -2.1855695e-09, 0.05, -0.049980506, -0.001396079, -6.102455e-11, 0, -0.2, 0)
 mesh = ExtResource("1_4nhx7")
 skeleton = NodePath("../..")
 
@@ -231,21 +231,21 @@ draw_skin = SubResource("Skin_48q2c")
 visible = false
 
 [node name="QuadPatch13_Rose Leaves_0" type="MeshInstance3D" parent="BloomedMesh2"]
-transform = Transform3D(-4.371139e-09, -0.1, 0, 0.1, -4.371139e-09, 0, 0, 0, 0.1, -0.23574926, -0.10047948, 0.36090216)
+transform = Transform3D(-4.371139e-09, -0.1, 0, 0.1, -4.371139e-09, 0, 0, 0, 0.1, -0.236, -0.5, 0.361)
 mesh = SubResource("ArrayMesh_bbwbe")
 skeleton = NodePath("")
 
 [node name="QuadPatch13_RosePedalsRed_0" type="MeshInstance3D" parent="BloomedMesh2"]
-transform = Transform3D(-4.371139e-09, -0.1, 0, 0.1, -4.371139e-09, 0, 0, 0, 0.1, -0.23574926, -0.10047948, 0.36090216)
+transform = Transform3D(-4.371139e-09, -0.1, 0, 0.1, -4.371139e-09, 0, 0, 0, 0.1, -0.236, -0.5, 0.361)
 mesh = SubResource("ArrayMesh_g1wt8")
 skeleton = NodePath("")
 
 [node name="QuadPatch13_RoseBottom_0" type="MeshInstance3D" parent="BloomedMesh2"]
-transform = Transform3D(-4.371139e-09, -0.1, 0, 0.1, -4.371139e-09, 0, 0, 0, 0.1, -0.23574926, -0.10047948, 0.36090216)
+transform = Transform3D(-4.371139e-09, -0.1, 0, 0.1, -4.371139e-09, 0, 0, 0, 0.1, -0.236, -0.5, 0.361)
 mesh = SubResource("ArrayMesh_5e83s")
 skeleton = NodePath("")
 
 [node name="QuadPatch13_Rose Spikes_0" type="MeshInstance3D" parent="BloomedMesh2"]
-transform = Transform3D(-4.371139e-09, -0.1, 0, 0.1, -4.371139e-09, 0, 0, 0, 0.1, -0.23574926, -0.10047948, 0.36090216)
+transform = Transform3D(-4.371139e-09, -0.1, 0, 0.1, -4.371139e-09, 0, 0, 0, 0.1, -0.236, -0.5, 0.361)
 mesh = SubResource("ArrayMesh_qwl8s")
 skeleton = NodePath("")

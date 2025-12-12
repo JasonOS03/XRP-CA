@@ -115,7 +115,7 @@ shadow_mesh = SubResource("ArrayMesh_muvkc")
 size = Vector3(0.7913208, 1.430542, 1)
 
 [node name="Stone_monument" type="Area3D" groups=["monument"]]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, -1, 0)
 script = ExtResource("1_umeva")
 
 [node name="Sketchfab_Scene" type="Node3D" parent="."]
