@@ -9,13 +9,15 @@ GitHub: https://github.com/JasonOS03
 Project Title: PollinatorXR – an XR flower pollinator simulator 
 
 # Video
-[![Alt Text](http://img.youtube.com/vi/AlQ7xfUlVl4/0.jpg)](https://youtube.com/embed/watch?v=AlQ7xfUlVl4)
+[![Alt Text](http://img.youtube.com/vi/AlQ7xfUlVl4/0.jpg)](https://youtube.com/watch?v=AlQ7xfUlVl4)
 
 # Screenshots
 
 # Description of the project
 
-The character of this project represents a bee. This bee floats around an area representing a garden, which spawns a 4x4 grid of flowers. The character can teleport to each flower using a point-and-click teleport mechanic. Once the flower is touched, it blooms and pollen is released into the air (in the form of particles). A pollen counter is maintained, and once all the flowers have bloomed, the goal of pollinating all the flowers will be complete, and victory music will play in the background. The garden contains a stone monument, and this stone monument once pointed at or clicked, will reset the scene to allow for a continuous gameplay loop. The garden also contains a sign, and once clicked will display a fun fact about pollination to the user. Different sounds are played, including relaxing garden music, victory music when all flowers are pollinated, and a buzzing sound coming from the bee.
+The character of this project represents a bee. This bee floats around an area representing a garden, which spawns a 4x4 grid of flowers. The character can teleport to each flower using a point-and-click teleport mechanic. Once the flower is touched, it blooms and pollen is released into the air (in the form of particles). A pollen counter is maintained, and once all the flowers have bloomed, the goal of pollinating all the flowers will be complete, and victory music will play in the background. 
+
+The garden contains a stone monument, and this stone monument once pointed at or clicked, will reset the scene to allow for a continuous gameplay loop. The garden also contains a sign, and once clicked will display a fun fact about pollination to the user. Different sounds are played, including relaxing garden music, victory music when all flowers are pollinated, and a buzzing sound coming from the bee.
 
 This project was built to demonstrate an interactive scene which aligns with SDG: 15 Life on Land and shows the importance of pollination for the environment and for the flower and crop life cycle. 
 
@@ -34,7 +36,8 @@ Step 4:
  A/X Button: Teleport to clicked area/ click on sign,flowers or stone monument
 
 # How it works
-Upon the main garden scene loading, a 4x4 grid of flowers, a stone monument, background trees and a wooden sign spawn in the garden. This is achieved using the .instantiate() function. The garden music and bee buzzing sounds begins playing as soon as the scene is loaded and plays through the AudioStreamPlayer3D node containing .mp3 files. A label3D node displays a label in the top left corner of the headset containing the number of flowers pollinated, which is intiallly set to 0. When pointing at a specific area or clicking on a particular area of the garden using the pointer, the bee teleports to that location. 
+Upon the main garden scene loading, a 4x4 grid of flowers, a stone monument, background trees and a wooden sign spawn in the garden. This is achieved using the .instantiate() function. The garden music and bee buzzing sounds begins playing as soon as the scene is loaded and plays through the AudioStreamPlayer3D node containing .mp3 files. A label3D node displays a label in the top left corner of the headset containing the number of flowers pollinated, which is intiallly set to 0. When pointing at a specific area or clicking on a particular area of the garden using the pointer, the bee teleports to that location.
+
 Upon touching a flower ( through clicking or pointing) The flower shoots out pollen using the GPUParticles3D node. Once pollinated the unbloomed flower swithes to a bloomed flower. The pollination counter label also increases in value when a flower is pollinated. Once all flowers in the garden are pollinated, the label displays text notifying the user that all flowers have been pollinated. Victory music also plays briefly to indicate all flowers have been pollinated.
 The entire garden scene can then be reset by pointing at or clicking on the stone monument allowing for a continuous gameplay loop as the flowers can be pollinated again. When the wooden sign in the garden is clicked or pointed at, text displays on the sign via a Label3D displaying a fun fact about pollination for educational purposes. 
 
@@ -45,7 +48,7 @@ stone_monument.gd: self-written
 function_pointer.gd: OpenXR Tools built in script provided when using FunctionPointer node
 pointer_event.gd: OpenXR Tools built in script
 righthand.gd: self-written
-lefthand.gd: self-written
+left_hand.gd: self-written
 woodensign_2.gd: self-written
 
 Assets:
@@ -72,8 +75,11 @@ I am most proud of the different interactions I developed through the code, and 
 # What I learned
 - I learned that the XR Toolkit is a powerful and very useful tool for XR development in Godot through its pre-built scenes and also its provided nodes. I learned how to use  the FunctionPointer tool to efficiently and effectively add point and click functionality to my project.
 - I also learned how to map button inputs using the XR Action Map and use signals to detect button presses with the XR controllers. This proved tricky to get fully working as there were many conflicts with the Action Map causing button clicks to not register. Eventually this was solved through manual button index mapping in the code and the use of the XRToolsPointerEvent node type.
+ 
 - I learned how to instantiate other scenes in the main garden scene e.g. the flower scene and effectively modify their transforms to ensure positions, scale, rotation etc are at desired values.
+  
 - I also learned how to to effectively modify the GPUParticles3D node properties such as gravity, linear velocity etc in order to achieve the desired output. It taught me how particle systems work in Godot and how they can be used effectively.
+
 - I learned the importance of properties such as attenuation and Volume dB in the audio output when using the AudioStreamPlayer3D node. Attenuation measures how sound fades over distance and Volume dB is used to tune volume levels to your liking.
 
 
