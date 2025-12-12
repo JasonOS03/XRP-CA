@@ -9,9 +9,17 @@ GitHub: https://github.com/JasonOS03
 Project Title: PollinatorXR – an XR flower pollinator simulator 
 
 # Video
-[![Alt Text](http://img.youtube.com/vi/AlQ7xfUlVl4/0.jpg)](https://youtube.com/watch?v=AlQ7xfUlVl4)
+[![XR Pollinator video demonstration](http://img.youtube.com/vi/AlQ7xfUlVl4/0.jpg)](https://youtube.com/watch?v=AlQ7xfUlVl4)
 
 # Screenshots
+![Trees view](https://github.com/user-attachments/assets/d65db5fd-3732-4457-9a7b-8c325fef4a9d)
+![Unbloomed flower view](https://github.com/user-attachments/assets/179e6a1a-22d4-4f30-b063-f3988e5f4b37)
+![Bloomed flower view](https://github.com/user-attachments/assets/1633a8b6-203a-4f49-be59-162a40f701e1)
+![Stone monument view](https://github.com/user-attachments/assets/093a0fb7-1b20-4b2e-ac61-bed20626098f)
+![Sign monument view](https://github.com/user-attachments/assets/74b45be5-c6a0-4f35-a4b1-cd090d642a28)
+
+
+
 
 # Description of the project
 
